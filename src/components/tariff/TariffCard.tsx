@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import DiscountBadge from "./DiscountBadge";
+import { Tariff } from "@/lib/types";
+
 
 interface TariffCardProps {
   tariff: Tariff;

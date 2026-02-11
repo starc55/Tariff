@@ -1,8 +1,11 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #232829;
 }
 
 @theme inline {
@@ -14,7 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #232829;
     --foreground: #ededed;
   }
 }
@@ -23,4 +26,55 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  @keyframes blink {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  .animate-blink {
+    animation: blink 1.2s infinite;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+  }
+
+  .animate-fadeOut {
+    animation: fadeOut 0.5s ease-out forwards;
+  }
+
+  @keyframes pulse-shadow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgba(250, 204, 21, 0);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
+    }
+  }
+
+  .animate-pulse-shadow {
+    animation: pulse-shadow 2s infinite;
+  }
 }
